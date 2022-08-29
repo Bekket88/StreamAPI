@@ -29,10 +29,10 @@ public class EmployeeService {
         return employee;
     }
 
-    public String remove(String firstName, String lastName) {
+    public Employee remove(String firstName, String lastName) {
         if (employees.containsKey(getKey(firstName, lastName))) {
             employees.remove(getKey(firstName, lastName));
-            return "Объект успешно удален";
+            return employees.remove(getKey(firstName, lastName));
         }
         throw new EmployeeNotFoundException();
     }

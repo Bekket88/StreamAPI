@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(path = "departments")
+@RequestMapping(path = "/departments")
 public class DepartmentController {
 
     private final DepartmentService departmentService;
@@ -20,22 +20,22 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
 
-    @GetMapping(path = "max-salary")
+    @GetMapping(path = "/max-salary")
     public Employee maxSalary(@RequestParam("departmentId") int department) {
         return departmentService.findMaxSalary(department);
     }
 
-    @GetMapping(path = "min-salary")
+    @GetMapping(path = "/min-salary")
     public Employee minSalary(@RequestParam("departmentId") int department) {
         return departmentService.findMinSalary(department);
     }
 
-    @GetMapping(path = "all", params = "departmentId")
+    @GetMapping(path = "/all", params = "departmentId")
     public List<Employee> getAllInDep(@RequestParam("departmentId") int department) {
         return departmentService.findAll(department);
     }
 
-    @GetMapping(path = "all")
+    @GetMapping(path = "/all")
     public Map<Integer, List<Employee>> getAllByDeps() {
         return departmentService.findAllByDep();
     }
